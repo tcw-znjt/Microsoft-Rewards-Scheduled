@@ -1,4 +1,4 @@
-# Microsoft-Rewards
+# Microsoft-Rewards-Scheduled
 [![version](https://img.shields.io/badge/python-3.4+-blue.svg)](https://www.python.org/download/releases/3.4.0/) 
 [![status](https://img.shields.io/badge/status-stable-green.svg)](https://github.com/huaisha1224/Microsoft-Rewards)
 [![license](https://img.shields.io/badge/license-MIT-blue.svg)](./LICENSE)
@@ -14,6 +14,15 @@
 ## 主要功能
 -	通过Selenium 控制Chrome浏览器访问bing.com，完成每日的搜索任务，来获取Microsoft Rewards每日积分。
 -	本项目直接操作Chrome浏览器，不需要用户提供Microsoft Rewards账户和密码，安全可靠。
+
+## 基于原版 PCRewards.user.js (V5.1.0) 的定制版本：
+-	新增每日定时任务系统（到点自动触发搜索，含开关/时间设置/状态查看菜单）
+-	新增心跳守卫机制（2小时阈值，防任务中断残留永久卡死）
+-	新增 visibilitychange 恢复兜底（页面从休眠/后台恢复时立即补检查）
+-	兼容 rewards.microsoft.com 域名
+-	搜索间隔调整为 5~6 分钟随机，最大搜索次数 45
+-	停止搜索任务时同步清除心跳与搜索标记
+-	移除每日活动/浏览卡片等自动跳转 rewards 页面的逻辑，仅保留搜索任务
 
 
 ## 运行环境
@@ -36,28 +45,3 @@ pip install -r requirements.txt
 -	下载对应版本的 ChromeDriver
 
 	[Chromedriver](https://chromedriver.chromium.org/downloads)
-
-
-## 更新记录
-- 【2023-02-25】提交代码
-- 【2023-02-28】添加滕王阁序作为搜索使用
-
-## 油猴脚本
-- 【2023-12-01】增加CD时间、解决必应搜索不增加积分的问题
-- 【2023-12-08】实时获取热门榜单来作为搜索关键词，目前支持{weibohot}微博热搜榜/{bilihot}哔哩热搜榜/{douyinhot}抖音热搜榜/{zhihuhot}知乎热搜榜/{baiduhot}百度热搜榜。
-- 【2024-01-11】支持自定义搜索词功能，并优化获取热门绑定失败后使用默认搜索词
-
-
-## 备注
-- 🌟 代码在Win10 + Python3.8环境中编写，如果在其他平台上运行出行问题，欢迎提issue。
-
-
-## 待完成的功能
-- 【抓取微博热搜用于搜索】
-- 【添加定时任务功能】 
-- 【添加多用户管理】
-- 【兑换提醒】
-- 【自动适配浏览器和ChromeDriver】
-
-![image](https://user-images.githubusercontent.com/3378350/230837253-1132c32f-30b5-4ead-9cae-70f8209ef55b.png)
-
