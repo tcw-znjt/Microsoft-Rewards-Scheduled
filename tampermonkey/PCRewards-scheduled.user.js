@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name         Microsoft Bing Rewards每日任务脚本（定时版）
-// @version      V6.1.0
+// @version      V6.1.1
 // @description  每日定时自动执行搜索任务，获取抖音/微博/哔哩哔哩/百度/头条热门词,避免使用同样的搜索词被封号。
 // @author       怀沙2049
 // @match        *://cn.bing.com/*
@@ -9,6 +9,8 @@
 // @match        *://rewards.bing.com/*
 // @match        *://www.rewards.bing.com/*
 // @match        *://rewards.microsoft.com/*
+// @noframes
+// 禁止注入 iframe（如 Bing 侧边栏的 Rewards 悬浮窗），保证角标恒为 1
 // @run-at       document-idle
 // @grant        GM_registerMenuCommand
 // @icon         https://www.bing.com/favicon.ico
